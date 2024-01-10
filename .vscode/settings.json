@@ -1,0 +1,14 @@
+{
+	"files.associations": {
+		"__functional_03": "cpp",
+		"__tuple": "cpp",
+		"atomic": "cpp",
+		"functional": "cpp",
+		"iterator": "cpp",
+		"memory": "cpp",
+		"string": "cpp",
+		"string_view": "cpp",
+		"tuple": "cpp",
+		"utility": "cpp"
+	}
+}
