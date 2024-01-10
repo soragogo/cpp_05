@@ -1,10 +1,10 @@
 NAME=a.out
 
-CXX=g++
+CXX=c++
 
-CXXFLAGS=-Wall -Wextra -Werror -stdc++98
+CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
-SRCS=main.cpp /
+SRCS=main.cpp \
 	Bureaucrat.cpp
 
 OBJS=$(SRCS:.cpp=.o)
@@ -12,7 +12,7 @@ OBJS=$(SRCS:.cpp=.o)
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS)
 
 clean:
 	rm -rf $(OBJS)
