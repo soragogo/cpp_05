@@ -6,7 +6,7 @@
 /*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:57:39 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/12 15:46:52 by emukamada        ###   ########.fr       */
+/*   Updated: 2024/01/12 15:51:55 by emukamada        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void Bureaucrat::gradeUp(){
 	try {
 		setGrade(grade - 1);
 	} catch (Bureaucrat::GradeTooHighExcepion& e) {
-		std::cout << "[Bureaucrat]" << e.what() << std::endl;
+		std::cerr << "[Bureaucrat]" << e.what() << std::endl;
 	}
 }
 
@@ -81,6 +81,6 @@ void Bureaucrat::gradeDown(){
 	try {
 		setGrade(grade + 1);
 	} catch (Bureaucrat::GradeTooLowExcepion& e) {
-		std::cout << "[Bureaucrat]" << e.what() << std::endl;
+		std::cerr << "[Bureaucrat]" << e.what() << std::endl;
 	}
 }
