@@ -6,13 +6,16 @@
 /*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:57:47 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/16 22:41:33 by emukamada        ###   ########.fr       */
+/*   Updated: 2024/01/16 23:02:39 by emukamada        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "Form.hpp"
 #include <string>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat{
 	public:
@@ -21,11 +24,13 @@ class Bureaucrat{
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &brc);
 		Bureaucrat &operator=(const Bureaucrat &brc);
+		std::ostream& operator<<(std::ostream& out) const;
 		void setGrade(int grade);
 		std::string getName() const;
 		int getGrade() const;
 		void gradeUp();
 		void gradeDown();
+		void signForm(Form& form);
 		class GradeTooHighException : public std::exception {
 			public:
 				const char *what() const throw();
