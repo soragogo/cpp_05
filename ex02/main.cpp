@@ -6,11 +6,12 @@
 /*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:57:46 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/18 14:03:00 by emukamada        ###   ########.fr       */
+/*   Updated: 2024/01/19 11:52:59 by emukamada        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 void testForm(){
 
@@ -36,6 +37,10 @@ void testBureaucrat(AForm& form){
 	b.signForm(form);
 }
 
+void testShrubberyCreationForm(ShrubberyCreationForm &form) {
+	std::cout << form;
+}
+
 int main(){
 
 	// Bureaucrat a("Bureaucrat[a]", 150);
@@ -44,8 +49,11 @@ int main(){
 	// Bureaucrat b;
 	// std::cout << std::endl;
 	testForm();
-	AForm form;
-	std::cout << form;
-	testBureaucrat(form);
+	AForm Aform;
+	ShrubberyCreationForm Sform;
+	testShrubberyCreationForm(Sform);
+	std::cout << Aform;
+	std::cout << Sform;
+	testBureaucrat(Aform);
 	return 0;
 }

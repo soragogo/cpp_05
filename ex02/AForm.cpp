@@ -115,10 +115,10 @@ void AForm::beSigned(Bureaucrat& brc) {
 
 
 const char *AForm::GradeTooHighException::what() const throw(){
-	return "[AForm] Grade is too high";
+	return "Grade is too high";
 }
 
 const char *AForm::GradeTooLowException::what() const throw(){
-	return "[AForm] Grade is too low";
+	return "Grade is too low";
 }
 
