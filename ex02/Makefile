@@ -30,7 +30,7 @@ clean:
 	rm -rf objs
 
 fclean:clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) *_file
 
 re:fclean
 	make all
