@@ -6,7 +6,7 @@
 /*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:57:46 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/20 12:06:42 by emukamada        ###   ########.fr       */
+/*   Updated: 2024/01/20 15:33:16 by emukamada        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void testShrubberyCreationForm(ShrubberyCreationForm &form) {
 	Bureaucrat s("Bureaucrat[s]", 10);
 	form.createShrubbery("test");
 	form.beSigned(s);
-	form.createShrubbery("test");
 }
 
 int main(){
