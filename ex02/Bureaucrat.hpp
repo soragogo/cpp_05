@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 17:57:47 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/18 14:00:41 by emukamada        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#pragma once
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include "AForm.hpp"
 #include <string>
 #include <iostream>
@@ -31,6 +20,7 @@ class Bureaucrat{
 		void gradeUp();
 		void gradeDown();
 		void signForm(AForm& form);
+		void executeForm(AForm const &Form);
 		class GradeTooHighException : public std::exception {
 			public:
 				const char *what() const throw();
@@ -46,3 +36,4 @@ class Bureaucrat{
 
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat);
+#endif

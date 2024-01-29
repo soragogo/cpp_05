@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 22:45:53 by emukamada         #+#    #+#             */
-/*   Updated: 2024/01/20 15:18:29 by emukamada        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#pragma once
+#ifndef AFORM_HPP
+#define AFORM_HPP
 #include "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
@@ -28,14 +17,19 @@ class AForm{
         std::string getName() const;
         int getGradeToExecute() const;
         int getGradeToSign() const;
-        bool getIsSigned();
+        bool getIsSigned() const;
         void setIsSigned(bool is_signed);
         void beSigned(Bureaucrat &brc);
+        void execute(Bureaucrat const & executer) const;
         class GradeTooLowException : public std::exception{
 			    public:
 				    const char *what() const throw();
         };
         class GradeTooHighException : public std::exception{
+			    public:
+				    const char *what() const throw();
+        };
+        class FormNotSignedException : public std::exception{
 			    public:
 				    const char *what() const throw();
         };
@@ -47,3 +41,4 @@ class AForm{
 };
 
 std::ostream& operator<<(std::ostream& out, AForm& form);
+#endif

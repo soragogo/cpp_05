@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 19:29:03 by emukamada         #+#    #+#             */
-/*   Updated: 2024/01/20 15:17:30 by emukamada        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-#pragma once
 #include "AForm.hpp"
 #include <fstream>
 
@@ -23,5 +13,6 @@ class ShrubberyCreationForm : public AForm{
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm& form);
         void createShrubbery(std::string target);
 };
-
 std::ostream& operator<<(std::ostream& out, ShrubberyCreationForm& form);
+
+#endif

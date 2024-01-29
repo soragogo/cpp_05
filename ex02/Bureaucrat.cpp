@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 17:57:39 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/18 14:00:19 by emukamada        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
@@ -101,5 +90,18 @@ void Bureaucrat::signForm(AForm &form) {
 	} catch (AForm::GradeTooLowException& e) {
 		std::cerr << getName() << " could not sign " << form.getName();
 		std::cerr << " because: " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+	try {
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	} catch (AForm::GradeTooLowException &e) {
+		std::cout << this->getName() << " failed to execute " << form.getName() << std::endl;
+
+	} catch (AForm::FormNotSignedException &e) {
+		std::cout << this->getName() << " failed to execute " << form.getName() << std::endl;
+		std::cout << "Reason: " << e.what() <<
 	}
 }

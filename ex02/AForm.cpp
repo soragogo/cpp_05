@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 17:57:39 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/18 13:26:47 by emukamada        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "AForm.hpp"
 
 AForm::AForm() : name("AForm"), grade_to_execute(100), grade_to_sign(100), is_signed(false){
@@ -99,7 +87,7 @@ int AForm::getGradeToSign() const{
 	return grade_to_sign;
 }
 
-bool AForm::getIsSigned(){
+bool AForm::getIsSigned() const{
 	return is_signed;
 }
 
@@ -122,3 +110,18 @@ const char *AForm::GradeTooLowException::what() const throw(){
 	return "Grade is too low";
 }
 
+const char *AForm::FormNotSignedException::what() const throw(){
+	return "Form is not signed yet";
+}
+
+void AForm::execute(Bureaucrat const & executer) const{
+    if (this->getIsSigned() == false) {
+        if (executer.getGrade() <= this->getGradeToExecute())
+            std::cout << "This is a base class" << std::endl;
+        else
+            throw GradeTooLowException();
+    }
+    else {
+        throw FormNotSignedException();
+    }
+}

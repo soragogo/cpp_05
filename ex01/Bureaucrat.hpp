@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: emukamada <emukamada@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 17:57:47 by ekamada           #+#    #+#             */
-/*   Updated: 2024/01/16 23:02:39 by emukamada        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#pragma once
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include "Form.hpp"
 #include <string>
 #include <iostream>
@@ -46,3 +35,4 @@ class Bureaucrat{
 
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat);
+#endif
