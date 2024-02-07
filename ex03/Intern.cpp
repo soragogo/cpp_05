@@ -38,7 +38,7 @@ Intern &Intern::operator=(const Intern &intern){
 AForm *Intern::makeForm(std::string form, std::string target) {
     int i;
     AForm *rtf;
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < 3; i++) {
         if (options[i] == form) break;
     }
     switch(i) {
