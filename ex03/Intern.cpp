@@ -14,7 +14,6 @@ Intern::Intern(){
 
 Intern::~Intern(){
 	std::cout << "[Intern] Destructor called" <<std::endl;
-
 }
 
 Intern::Intern(const Intern &intern){
@@ -37,26 +36,29 @@ Intern &Intern::operator=(const Intern &intern){
 
 AForm *Intern::makeForm(std::string form, std::string target) {
     int i;
-    AForm *rtf;
+    AForm *rtf = NULL;
     for (i = 0; i < 3; i++) {
         if (options[i] == form) break;
     }
     switch(i) {
         case 0:
+            std::cout << "Creating ShrubberyCreationForm" << std::endl;
             rtf = new ShrubberyCreationForm(target);
             return rtf;
             break;
         case 1:
+            std::cout << "Creating RobotomyRequestForm" << std::endl;
             rtf = new RobotomyRequestForm(target);
             return rtf;
             break;
         case 2:
+            std::cout << "Creating PresidentialPardonForm" << std::endl;
             rtf = new PresidentialPardonForm(target);
             return rtf;
             break;
         default:
             std::cerr << "Form does not exist" << std::endl;
-            return NULL;
+            return rtf;
     }
 
 }
