@@ -99,9 +99,13 @@ void Bureaucrat::executeForm(AForm const & form) {
 		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	} catch (AForm::GradeTooLowException &e) {
 		std::cout << this->getName() << " failed to execute " << form.getName() << std::endl;
+		std::cout << "Reason: " << e.what() << std::endl;
 
 	} catch (AForm::FormNotSignedException &e) {
 		std::cout << this->getName() << " failed to execute " << form.getName() << std::endl;
-		std::cout << "Reason: " << e.what() <<
+		std::cout << "Reason: " << e.what() << std::endl;
+	} catch (AForm::FormExecuteException &e) {
+		std::cout << this->getName() << " failed to execute " << form.getName() << std::endl;
+		std::cout << "Reason: " << e.what() << std::endl;
 	}
 }

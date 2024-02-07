@@ -11,7 +11,11 @@ class ShrubberyCreationForm : public AForm{
         ~ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm& form);
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm& form);
-        void createShrubbery(std::string target);
+        void implementJob(std::string target) const;
+        class implementExcepetion : public std::exception{
+            public:
+                const char *what() const throw();
+        };
 };
 std::ostream& operator<<(std::ostream& out, ShrubberyCreationForm& form);
 

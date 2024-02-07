@@ -1,6 +1,8 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
-#include "Aform.hpp"
+#include <cstdlib>
+#include <ctime>
+#include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm{
     public:
@@ -9,6 +11,7 @@ class RobotomyRequestForm : public AForm{
         ~RobotomyRequestForm();
         RobotomyRequestForm(const RobotomyRequestForm& form);
         RobotomyRequestForm &operator=(const RobotomyRequestForm& form);
+        void implementJob(std::string target) const;
 };
 
 std::ostream& operator<<(std::ostream& out, RobotomyRequestForm& form);

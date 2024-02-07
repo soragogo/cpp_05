@@ -114,14 +114,38 @@ const char *AForm::FormNotSignedException::what() const throw(){
 	return "Form is not signed yet";
 }
 
-void AForm::execute(Bureaucrat const & executer) const{
-    if (this->getIsSigned() == false) {
-        if (executer.getGrade() <= this->getGradeToExecute())
-            std::cout << "This is a base class" << std::endl;
-        else
+const char *AForm::FormExecuteException::what() const throw(){
+	return "Form failed to be executed";
+}
+
+const char *AForm::implementExcepetion::what() const throw(){
+	return "Job implementation failed";
+}
+
+
+
+void AForm::execute(Bureaucrat const & executer) const {
+    if (getIsSigned()) {
+        if (executer.getGrade() > this->getGradeToExecute()) {
             throw GradeTooLowException();
+        }
+        else {
+            try {
+                std::cout << this->getName() <<" is being executed..." << std::endl;
+                implementJob(executer.getName());
+            }
+            catch (AForm::implementExcepetion &e){
+                std::cerr << "Failed to implement the job" << std::endl;
+                std::cerr << "Reason: " << e.what() << std::endl;
+            }
+        }
     }
     else {
         throw FormNotSignedException();
     }
+};
+
+
+void AForm::implementJob(std::string target) const{
+    std::cout << "Implementing the job for" << target << std::endl;
 }

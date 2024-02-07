@@ -33,3 +33,10 @@ std::ostream& operator<<(std::ostream& out, RobotomyRequestForm& form) {
 	return out;
 }
 
+void RobotomyRequestForm::implementJob(std::string target) const{
+    std::cout << "Bzzzzzzzzzzzzzzzzzzzz" << std::endl;
+    srand(static_cast<unsigned int>(time(0)));
+    int success = rand() % 2;
+    if (success) std::cout << target << " is successfully robotomized" << std::endl;
+    else std::cout << "Failed to robotomize" << target << std::endl;
+}
