@@ -21,7 +21,7 @@ class AForm{
         void setIsSigned(bool is_signed);
         void beSigned(Bureaucrat &brc);
         void execute(Bureaucrat const & executer) const;
-        void implementJob(std::string target) const;
+        virtual void implementJob(std::string target) const = 0;
         class GradeTooLowException : public std::exception{
 			    public:
 				    const char *what() const throw();

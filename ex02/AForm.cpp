@@ -146,6 +146,6 @@ void AForm::execute(Bureaucrat const & executer) const {
 };
 
 
-void AForm::implementJob(std::string target) const{
-    std::cout << "Implementing the job for" << target << std::endl;
-}
+// void AForm::implementJob(std::string target) const{
+//     std::cout << "Implementing the job for " << target << std::endl;
+// }

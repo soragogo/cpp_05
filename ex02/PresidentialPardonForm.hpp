@@ -9,6 +9,7 @@ class PresidentialPardonForm : public AForm{
         ~PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm& form);
         PresidentialPardonForm &operator=(const PresidentialPardonForm& form);
+        void implementJob(std::string target) const;
 };
 
 std::ostream& operator<<(std::ostream& out, PresidentialPardonForm& form);

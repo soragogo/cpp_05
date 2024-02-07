@@ -31,3 +31,7 @@ std::ostream& operator<<(std::ostream& out, PresidentialPardonForm& form) {
 	return out;
 }
 
+
+void PresidentialPardonForm::implementJob(std::string target) const{
+    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}

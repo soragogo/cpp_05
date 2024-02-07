@@ -38,5 +38,5 @@ void RobotomyRequestForm::implementJob(std::string target) const{
     srand(static_cast<unsigned int>(time(0)));
     int success = rand() % 2;
     if (success) std::cout << target << " is successfully robotomized" << std::endl;
-    else std::cout << "Failed to robotomize" << target << std::endl;
+    else std::cout << "Failed to robotomize " << target << std::endl;
 }
