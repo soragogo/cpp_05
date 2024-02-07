@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-AForm::AForm() : name("AForm"), grade_to_execute(100), grade_to_sign(100), is_signed(false){
+AForm::AForm() :target("Default"), name("AForm"), grade_to_execute(100), grade_to_sign(100), is_signed(false){
 	std::cout << "[AForm] Constructor called" <<std::endl;
     if (grade_to_execute < 1 || grade_to_sign < 1) {
         throw GradeTooHighException();
@@ -10,8 +10,19 @@ AForm::AForm() : name("AForm"), grade_to_execute(100), grade_to_sign(100), is_si
     }
 }
 
-AForm::AForm(std::string name, const int grade_to_execute, const int grade_to_sign, bool is_signed)
-: name(name), grade_to_execute(grade_to_execute), grade_to_sign(grade_to_sign), is_signed(is_signed) {
+AForm::AForm(const std::string target) :target(target), name("AForm"), grade_to_execute(100), grade_to_sign(100), is_signed(false) {
+	std::cout << "[AForm] Constructor called" <<std::endl;
+    if (grade_to_execute < 1 || grade_to_sign < 1) {
+        throw GradeTooHighException();
+    }
+    else if (grade_to_execute > 150 || grade_to_sign > 150) {
+        throw GradeTooLowException();
+    }
+}
+
+AForm::AForm(const std::string target, const std::string name, const int grade_to_execute, const int grade_to_sign, bool is_signed)
+:target(target), name(name), grade_to_execute(100), grade_to_sign(100), is_signed(is_signed)
+{
 	std::cout << "[AForm] Constructor called" <<std::endl;
     if (grade_to_execute < 1 || grade_to_sign < 1) {
         throw GradeTooHighException();
@@ -26,7 +37,7 @@ AForm::~AForm(){
 
 }
 
-AForm::AForm(const AForm &form) : name(form.name), grade_to_execute(form.grade_to_execute), grade_to_sign(form.grade_to_sign), is_signed(form.is_signed){
+AForm::AForm(const AForm &form) : target(form.target) ,name(form.name), grade_to_execute(form.grade_to_execute), grade_to_sign(form.grade_to_sign), is_signed(form.is_signed){
 	std::cout << "[AForm] Copy constructor called" <<std::endl;
     if (grade_to_execute < 1 || grade_to_sign < 1) {
         throw GradeTooHighException();
@@ -39,7 +50,7 @@ AForm::AForm(const AForm &form) : name(form.name), grade_to_execute(form.grade_t
 AForm &AForm::operator=(const AForm &form){
 	std::cout << "[AForm] Copy assignment operator called" <<std::endl;
 	if (this != &form) {
-        this->is_signed = form.is_signed;
+        this->is_signed = form.getIsSigned();
     }
 	return *this;
 }
@@ -48,6 +59,10 @@ std::ostream& operator<<(std::ostream& out, AForm& AForm) {
 	out << AForm.getName() << ", AForm grade(execute) " << AForm.getGradeToExecute();
     out << ", grade(sign) " << AForm.getGradeToSign() << std::endl;
 	return out;
+}
+
+std::string AForm::getTarget() const{
+    return this->target;
 }
 
 // void AForm::setGradeToExecute(int grade){
@@ -132,7 +147,7 @@ void AForm::execute(Bureaucrat const & executer) const {
         else {
             try {
                 std::cout << this->getName() <<" is being executed..." << std::endl;
-                implementJob(executer.getName());
+                implementJob(getTarget());
             }
             catch (AForm::implementExcepetion &e){
                 std::cerr << "Failed to implement the job" << std::endl;

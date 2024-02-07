@@ -1,11 +1,8 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("DefaultName", 137, 145, false) {
-    std::cout << "[ShrubberyCreationForm] Constructor called" <<std::endl;
-}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 137, 145, false){
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm(target, "Sform", 137, 145, false){
     std::cout << "[ShrubberyCreationForm] Constructor called" <<std::endl;
 }
 

@@ -1,12 +1,9 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("DefaultName", 45, 72, false) {
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) :AForm(target, "PForm", 45, 72, false) {
     std::cout << "[PresidentialPardonForm] Constructor called" <<std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name) : AForm(name, 45, 72, false){
-    std::cout << "[PresidentialPardonForm] Copy constructor called" <<std::endl;
-}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& form) : AForm(form){
     std::cout << "[PresidentialPardonForm] Copy assignment operator called" <<std::endl;

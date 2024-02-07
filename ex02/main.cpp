@@ -25,7 +25,7 @@ void testForm(){
 
 void testShrubberyCreationForm() {
 	std::cout <<BLUE<< "2. Testing Shrubbery" << END << std::endl;
-	ShrubberyCreationForm Sform("sform");
+	ShrubberyCreationForm Sform("target2");
 	std::cout << Sform;
 	std::cout <<RED<< "a. Sform has not been signed yet" << END << std::endl;
 	Bureaucrat foo("Bureaucrat[foo]", 150);
@@ -69,7 +69,7 @@ void testShrubberyCreationForm() {
 
 void testRobotomyRequestForm() {
 	std::cout <<BLUE<< "3. Testing Robotomy" << END << std::endl;
-	RobotomyRequestForm Rform("rform");
+	RobotomyRequestForm Rform("target3");
 	std::cout << Rform;
 	std::cout <<RED<< "a. Rform has not been signed yet" << END << std::endl;
 	Bureaucrat foo("Bureaucrat[foo]", 150);
@@ -113,7 +113,7 @@ void testRobotomyRequestForm() {
 
 void testPresidentialPardonForm() {
 	std::cout <<BLUE<< "4. Testing President" << END << std::endl;
-	PresidentialPardonForm Pform("pform");
+	PresidentialPardonForm Pform("target4");
 	std::cout << Pform;
 	std::cout <<RED<< "a. Pform has not been signed yet" << END << std::endl;
 	Bureaucrat foo("Bureaucrat[foo]", 150);
@@ -158,7 +158,7 @@ void testPresidentialPardonForm() {
 int main(){
 	std::cout <<BLUE<<BOLD<< "Starting test 🚀" <<END<<std::endl;
 	std::cout << "-----------------------------" << std::endl;
-	// testForm();
+	testForm();
 	std::cout << "-----------------------------" << std::endl;
 	testShrubberyCreationForm();
 	std::cout << "-----------------------------" << std::endl;

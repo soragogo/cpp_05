@@ -9,12 +9,13 @@ class Bureaucrat;
 class AForm{
     public:
         AForm();
+        AForm(const std::string target);
+        AForm(const std::string target, const std::string name, const int grade_to_execute, const int grade_to_sign, bool is_signed);
         ~AForm();
-        AForm(std::string name, int grade_to_execute,
-         int grade_to_sign, bool is_signed);
         AForm(const AForm& form);
         AForm &operator=(const AForm& form);
         std::string getName() const;
+        std::string getTarget() const;
         int getGradeToExecute() const;
         int getGradeToSign() const;
         bool getIsSigned() const;
@@ -43,6 +44,7 @@ class AForm{
 				    const char *what() const throw();
         };
     private:
+        const std::string target;
         const std::string name;
         const int grade_to_execute;
         const int grade_to_sign;

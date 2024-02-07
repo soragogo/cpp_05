@@ -1,12 +1,8 @@
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("DefaultName", 5, 25, false) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) :AForm(target, "Rform", 5, 25, false) {
     std::cout << "[RobotomyRequestForm] Constructor called" <<std::endl;
-}
-
-RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm(name, 5, 25, false){
-    std::cout << "[RobotomyRequestForm] Copy constructor called" <<std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& form) : AForm(form){
