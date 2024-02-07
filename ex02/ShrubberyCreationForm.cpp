@@ -37,7 +37,8 @@ const char *ShrubberyCreationForm::implementExcepetion::what() const throw(){
 
 
 void ShrubberyCreationForm::implementJob(std::string target) const{
-        std::ofstream file(target + "_file");
+        std::string fileName = target + "_file";
+        std::ofstream file(fileName.c_str());
         if (file.is_open()) {
             for (int i = 0; i < 5; i++) {
                 file << "                                    :=**##**+=-. ...." << std::endl;
