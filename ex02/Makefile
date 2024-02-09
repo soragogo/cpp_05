@@ -35,4 +35,5 @@ fclean:clean
 re:fclean
 	make all
 
+debug:all
 -include objs/*.d

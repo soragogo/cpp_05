@@ -12,7 +12,7 @@ void testForm(){
 	std::cout << "```" << END << std::endl;
 	// AForm form;
 	std::cout << "```" << END << std::endl;
-
+	std::cout << "-----------------------------" << std::endl;
 }
 
 void testShrubberyCreationForm() {
@@ -21,9 +21,8 @@ void testShrubberyCreationForm() {
 	std::cout << Sform;
 	Bureaucrat foo("Bureaucrat[foo]", 150);
 	std::cout << foo;
-	std::cout <<RED<< "a. Sform has not been signed yet" << END << std::endl;
+	std::cout <<RED<< "a. Sform has not been signed yet so it cannot be executed" << END << std::endl;
 	try {
-		// Sform.beSigned(foo);
 		foo.executeForm(Sform);
 	}
 	catch (ShrubberyCreationForm::FormNotSignedException &e){
@@ -57,6 +56,7 @@ void testShrubberyCreationForm() {
 	catch (ShrubberyCreationForm::FormExecuteException &e){
 		std::cerr << e.what();
 	}
+	std::cout << "-----------------------------" << std::endl;
 }
 
 void testRobotomyRequestForm() {
@@ -101,6 +101,7 @@ void testRobotomyRequestForm() {
 	catch (RobotomyRequestForm::FormExecuteException &e){
 		std::cerr << e.what();
 	}
+	std::cout << "-----------------------------" << std::endl;
 }
 
 void testPresidentialPardonForm() {
@@ -145,18 +146,14 @@ void testPresidentialPardonForm() {
 	catch (PresidentialPardonForm::FormExecuteException &e){
 		std::cerr << e.what();
 	}
+	std::cout << "-----------------------------" << std::endl;
 }
 
 int main(){
 	std::cout <<BLUE<<BOLD<<BOLD<< "Starting test 🚀" <<END<<std::endl;
-	std::cout << "-----------------------------" << std::endl;
 	testForm();
-	std::cout << "-----------------------------" << std::endl;
 	testShrubberyCreationForm();
-	std::cout << "-----------------------------" << std::endl;
 	testRobotomyRequestForm();
-	std::cout << "-----------------------------" << std::endl;
 	testPresidentialPardonForm();
-	std::cout << "-----------------------------" << std::endl;
 	return 0;
 }
