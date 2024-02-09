@@ -32,8 +32,6 @@ int main(){
 
 	std::cout << RED << "4. No matches" << END << std::endl;
 	rtf4 = someRamdomIntern.makeForm("no matches", "Bender");
-	// rtf4->beSigned(brc);
-	// brc.executeForm(rtf4);
 
 	std::cout << BLUE << BOLD << "Deleting forms...." << END << std::endl;
 	delete rtf1;
