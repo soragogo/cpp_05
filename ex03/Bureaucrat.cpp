@@ -23,14 +23,14 @@ Bureaucrat::~Bureaucrat(){
 
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &brc) : name(brc.name), grade(brc.grade){
+Bureaucrat::Bureaucrat(const Bureaucrat &brc) : name(brc.getName()), grade(brc.getGrade()){
 	std::cout << "[Bureaucrat] Copy constructor called" <<std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &brc){
 	std::cout << "[Bureaucrat] Copy assignment operator called" <<std::endl;
 	if (this != &brc)
-		this->grade = brc.grade;
+		this->grade = brc.getGrade();
 	return *this;
 }
 

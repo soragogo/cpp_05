@@ -1,12 +1,9 @@
-
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
-
-
 
 int main(){
 	std::cout << BLUE << BOLD << "Starting Test 🚀" << END << std::endl;
@@ -18,22 +15,22 @@ int main(){
 	AForm* rtf3;
 	AForm* rtf4;
 
-	std::cout << GREEN << "Shrubbery creation" << END << std::endl;
+	std::cout << GREEN << "1. Shrubbery creation" << END << std::endl;
 	rtf2 = someRamdomIntern.makeForm("shrubbery creation", "SBender");
 	rtf2->beSigned(brc);
 	brc.executeForm(*rtf2);
 
-	std::cout << GREEN << "Robotomy request" << END << std::endl;
+	std::cout << GREEN << "2. Robotomy request" << END << std::endl;
 	rtf1 = someRamdomIntern.makeForm("robotomy request", "RBender");
 	rtf1->beSigned(brc);
 	brc.executeForm(*rtf1);
 
-	std::cout << GREEN << "Presidential pardon" << END << std::endl;
+	std::cout << GREEN << "3. Presidential pardon" << END << std::endl;
 	rtf3 = someRamdomIntern.makeForm("presidential pardon", "PBender");
 	rtf3->beSigned(brc);
 	brc.executeForm(*rtf3);
 
-	std::cout << RED << "No matches" << END << std::endl;
+	std::cout << RED << "4. No matches" << END << std::endl;
 	rtf4 = someRamdomIntern.makeForm("no matches", "Bender");
 	// rtf4->beSigned(brc);
 	// brc.executeForm(rtf4);
@@ -45,9 +42,9 @@ int main(){
 	delete rtf4;
 }
 
-// void end(void)__attribute__((destructor));
+void end(void)__attribute__((destructor));
 
-// void end(void)
-// {
-//     system("leaks -q a.out");
-// }
+void end(void)
+{
+    system("leaks -q a.out");
+}
