@@ -10,10 +10,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
 	try {
 		setGrade(grade);
 	} catch (const Bureaucrat::GradeTooHighException& e) {
-		std::cerr << "[Bureaucrat] " << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 		setGrade(1);
 	} catch (const Bureaucrat::GradeTooLowException& e) {
-		std::cerr << "[Bureaucrat] " << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 		setGrade(150);
 	}
 }
