@@ -6,15 +6,7 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
 	std::cout << "[Bureaucrat] Constructor called" <<std::endl;
-	try {
-		setGrade(grade);
-	} catch (const Bureaucrat::GradeTooHighException& e) {
-		std::cerr << e.what() << std::endl;
-		setGrade(1);
-	} catch (const Bureaucrat::GradeTooLowException& e) {
-		std::cerr << e.what() << std::endl;
-		setGrade(150);
-	}
+	setGrade(grade);
 }
 
 Bureaucrat::~Bureaucrat(){
@@ -65,19 +57,11 @@ const char *Bureaucrat::GradeTooLowException::what() const throw(){
 }
 
 void Bureaucrat::gradeUp(){
-	try {
-		std::cout << "[Bureaucrat] trying to grade up..." << std::endl;
-		setGrade(grade - 1);
-	} catch (Bureaucrat::GradeTooHighException& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "[Bureaucrat] trying to grade up..." << std::endl;
+	setGrade(grade - 1);
 }
 
 void Bureaucrat::gradeDown(){
-	try {
-		std::cout << "[Bureaucrat] trying to grade down..." << std::endl;
-		setGrade(grade + 1);
-	} catch (Bureaucrat::GradeTooLowException& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "[Bureaucrat] trying to grade down..." << std::endl;
+	setGrade(grade + 1);
 }
