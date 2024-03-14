@@ -34,7 +34,6 @@ AForm::AForm(const std::string target, const std::string name, const int grade_t
 
 AForm::~AForm(){
 	std::cout << "[AForm] Destructor called" <<std::endl;
-
 }
 
 AForm::AForm(const AForm &form) : target(form.target) ,name(form.name), grade_to_execute(form.grade_to_execute), grade_to_sign(form.grade_to_sign), is_signed(form.is_signed){
@@ -80,26 +79,11 @@ void AForm::beSigned(Bureaucrat& brc) {
 
 
 
-const char *AForm::GradeTooHighException::what() const throw(){
-	return "Grade is too high";
-}
-
-const char *AForm::GradeTooLowException::what() const throw(){
-	return "Grade is too low";
-}
-
-const char *AForm::FormNotSignedException::what() const throw(){
-	return "Form is not signed yet";
-}
-
-const char *AForm::FormExecuteException::what() const throw(){
-	return "Form failed to be executed";
-}
-
-const char *AForm::implementExcepetion::what() const throw(){
-	return "Job implementation failed";
-}
-
+const char *AForm::GradeTooHighException::what() const throw(){return "Grade is too high";}
+const char *AForm::GradeTooLowException::what() const throw(){return "Grade is too low";}
+const char *AForm::FormNotSignedException::what() const throw(){return "Form is not signed yet";}
+const char *AForm::FormExecuteException::what() const throw(){return "Form failed to be executed";}
+const char *AForm::implementExcepetion::what() const throw(){return "Job implementation failed";}
 
 
 void AForm::execute(Bureaucrat const & executer) const {
@@ -108,14 +92,8 @@ void AForm::execute(Bureaucrat const & executer) const {
             throw GradeTooLowException();
         }
         else {
-            try {
-                std::cout << this->getName() <<" is being executed..." << std::endl;
-                implementJob(getTarget());
-            }
-            catch (AForm::implementExcepetion &e){
-                std::cerr << "Failed to implement the job" << std::endl;
-                std::cerr << "Reason: " << e.what() << std::endl;
-            }
+            std::cout << this->getName() <<" is being executed..." << std::endl;
+            implementJob(getTarget());
         }
     }
     else
