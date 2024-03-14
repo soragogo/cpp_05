@@ -40,13 +40,8 @@ void Bureaucrat::setGrade(int grade){
 		this->grade = grade;
 }
 
-std::string Bureaucrat::getName() const{
-	return name;
-}
-
-int Bureaucrat::getGrade() const{
-	return grade;
-}
+std::string Bureaucrat::getName() const{return name;}
+int Bureaucrat::getGrade() const{return grade;}
 
 const char *Bureaucrat::GradeTooHighException::what() const throw(){
 	return "[Bureaucrat] Grade is too high";

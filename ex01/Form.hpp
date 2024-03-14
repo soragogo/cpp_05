@@ -12,7 +12,7 @@ class Form{
         Form();
         ~Form();
         Form(std::string name, int grade_to_execute,
-         int grade_to_sign, bool is_signed);
+         int grade_to_sign);
         Form(const Form& form);
         Form &operator=(const Form& form);
         std::string getName() const;

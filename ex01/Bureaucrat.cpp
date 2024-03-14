@@ -7,15 +7,8 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
 	std::cout << "[Bureaucrat] Constructor called" <<std::endl;
-	try {
-		setGrade(grade);
-	} catch (const Bureaucrat::GradeTooHighException& e) {
-		std::cerr << e.what() << std::endl;
-		setGrade(1);
-	} catch (const Bureaucrat::GradeTooLowException& e) {
-		std::cerr << e.what() << std::endl;
-		setGrade(150);
-	}
+	setGrade(grade);
+
 }
 
 Bureaucrat::~Bureaucrat(){
@@ -40,47 +33,27 @@ std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
 }
 
 void Bureaucrat::setGrade(int grade){
-	if (grade < 1){
+	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	} else if (grade > 150) {
+	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	}
 	else
 		this->grade = grade;
 }
 
-std::string Bureaucrat::getName() const{
-	return name;
-}
-
-int Bureaucrat::getGrade() const{
-	return grade;
-}
-
-const char *Bureaucrat::GradeTooHighException::what() const throw(){
-	return "Grade is too high";
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw(){
-	return "Grade is too low";
-}
+std::string Bureaucrat::getName() const{return name;}
+int Bureaucrat::getGrade() const{return grade;}
+const char *Bureaucrat::GradeTooHighException::what() const throw(){return "Grade is too high";}
+const char *Bureaucrat::GradeTooLowException::what() const throw(){return "Grade is too low";}
 
 void Bureaucrat::gradeUp(){
-	try {
-		std::cout << "[Bureaucrat] trying to grade up..." << std::endl;
-		setGrade(grade - 1);
-	} catch (Bureaucrat::GradeTooHighException& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "[Bureaucrat] trying to grade up..." << std::endl;
+	setGrade(grade - 1);
 }
 
 void Bureaucrat::gradeDown(){
-	try {
-		std::cout << "[Bureaucrat] trying to grade down..." << std::endl;
-		setGrade(grade + 1);
-	} catch (Bureaucrat::GradeTooLowException& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "[Bureaucrat] trying to grade down..." << std::endl;
+	setGrade(grade + 1);
 }
 
 void Bureaucrat::signForm(Form &form) {

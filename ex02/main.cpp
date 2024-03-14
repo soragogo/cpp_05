@@ -25,14 +25,14 @@ void testShrubberyCreationForm() {
 	try {
 		foo.executeForm(Sform);
 	}
-	catch (ShrubberyCreationForm::FormNotSignedException &e){
+	catch (std::exception &e){
 		std::cerr << e.what();
 	}
 	std::cout <<RED<< "b. Foo does not have enough grade to sign" << END << std::endl;
 	try {
 		Sform.beSigned(foo);
 	}
-	catch (ShrubberyCreationForm::GradeTooLowException &e){
+	catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout <<RED<< "c. Foo does not have enough grade to execute" << END << std::endl;
@@ -42,7 +42,7 @@ void testShrubberyCreationForm() {
 		Sform.beSigned(bar);
 		foo.executeForm(Sform);
 	}
-	catch (ShrubberyCreationForm::GradeTooLowException &e){
+	catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout <<GREEN<< "d. Test that passes" << END << std::endl;
@@ -50,10 +50,7 @@ void testShrubberyCreationForm() {
 		Sform.beSigned(bar);
 		bar.executeForm(Sform);
 	}
-	catch (ShrubberyCreationForm::FormNotSignedException &e){
-		std::cerr << e.what();
-	}
-	catch (ShrubberyCreationForm::FormExecuteException &e){
+	catch (std::exception &e){
 		std::cerr << e.what();
 	}
 	std::cout << "-----------------------------" << std::endl;
@@ -70,14 +67,14 @@ void testRobotomyRequestForm() {
 		// Rform.beSigned(foo);
 		foo.executeForm(Rform);
 	}
-	catch (RobotomyRequestForm::FormNotSignedException &e){
+	catch (std::exception &e){
 		std::cerr << e.what();
 	}
 	std::cout <<RED<< "b. Foo does not have enough grade to sign" << END << std::endl;
 	try {
 		Rform.beSigned(foo);
 	}
-	catch (RobotomyRequestForm::GradeTooLowException &e){
+	catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout <<RED<< "c. Foo does not have enough grade to execute" << END << std::endl;
@@ -87,7 +84,7 @@ void testRobotomyRequestForm() {
 		Rform.beSigned(bar);
 		foo.executeForm(Rform);
 	}
-	catch (RobotomyRequestForm::GradeTooLowException &e){
+	catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout <<GREEN<< "d. Test that passes" << END << std::endl;
@@ -95,10 +92,7 @@ void testRobotomyRequestForm() {
 		Rform.beSigned(bar);
 		bar.executeForm(Rform);
 	}
-	catch (RobotomyRequestForm::FormNotSignedException &e){
-		std::cerr << e.what();
-	}
-	catch (RobotomyRequestForm::FormExecuteException &e){
+	catch (std::exception &e){
 		std::cerr << e.what();
 	}
 	std::cout << "-----------------------------" << std::endl;
@@ -115,14 +109,14 @@ void testPresidentialPardonForm() {
 		// Pform.beSigned(foo);
 		foo.executeForm(Pform);
 	}
-	catch (PresidentialPardonForm::FormNotSignedException &e){
+	catch (std::exception &e){
 		std::cerr << e.what();
 	}
 	std::cout <<RED<< "b. Foo does not have enough grade to sign" << END << std::endl;
 	try {
 		Pform.beSigned(foo);
 	}
-	catch (PresidentialPardonForm::GradeTooLowException &e){
+	catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout <<RED<< "c. Foo does not have enough grade to execute" << END << std::endl;
@@ -132,7 +126,7 @@ void testPresidentialPardonForm() {
 		Pform.beSigned(bar);
 		foo.executeForm(Pform);
 	}
-	catch (PresidentialPardonForm::GradeTooLowException &e){
+	catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout <<GREEN<< "d. Test that passes" << END << std::endl;
@@ -140,17 +134,14 @@ void testPresidentialPardonForm() {
 		Pform.beSigned(bar);
 		bar.executeForm(Pform);
 	}
-	catch (PresidentialPardonForm::FormNotSignedException &e){
-		std::cerr << e.what();
-	}
-	catch (PresidentialPardonForm::FormExecuteException &e){
+	catch (std::exception &e){
 		std::cerr << e.what();
 	}
 	std::cout << "-----------------------------" << std::endl;
 }
 
 int main(){
-	std::cout <<BLUE<<BOLD<<BOLD<< "Starting test 🚀" <<END<<std::endl;
+	std::cout <<BLUE<<BOLD<< "Starting test 🚀" <<END<<std::endl;
 	testForm();
 	testShrubberyCreationForm();
 	testRobotomyRequestForm();
