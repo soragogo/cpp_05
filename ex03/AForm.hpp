@@ -10,7 +10,7 @@ class AForm{
     public:
         AForm();
         AForm(const std::string target);
-        AForm(const std::string target, const std::string name, const int grade_to_execute, const int grade_to_sign, bool is_signed);
+        AForm(const std::string target, const std::string name, const int grade_to_execute, const int grade_to_sign);
         virtual ~AForm();
         AForm(const AForm& form);
         AForm &operator=(const AForm& form);

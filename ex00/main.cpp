@@ -27,12 +27,12 @@ int main(){
 
 		std::cout<<std::endl;
 		std::cout << BLUE << "B. gradeUp & gradeDown" << END << std::endl;
-		std::cout << RED << "6. Trying to grade up c (level:1)" << END << std::endl;
-		c.gradeUp();
-		std::cout<< c;
-		std::cout << RED << "7. Trying to grade down b (level:150)" << END << std::endl;
-		b.gradeDown();
-		std::cout<< b;
+		// std::cout << RED << "6. Trying to grade up c (level:1)" << END << std::endl;
+		// c.gradeUp();
+		// std::cout<< c;
+		// std::cout << RED << "7. Trying to grade down b (level:150)" << END << std::endl;
+		// b.gradeDown();
+		// std::cout<< b;
 		std::cout << GREEN << "8. Trying to grade up b (level:150)" << END << std::endl;
 		b.gradeUp();
 		std::cout<< b;

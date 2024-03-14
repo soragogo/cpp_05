@@ -20,8 +20,8 @@ AForm::AForm(const std::string target) :target(target), name("AForm"), grade_to_
     }
 }
 
-AForm::AForm(const std::string target, const std::string name, const int grade_to_execute, const int grade_to_sign, bool is_signed)
-:target(target), name(name), grade_to_execute(100), grade_to_sign(100), is_signed(is_signed)
+AForm::AForm(const std::string target, const std::string name, const int grade_to_execute, const int grade_to_sign)
+:target(target), name(name), grade_to_execute(100), grade_to_sign(100), is_signed(false)
 {
 	std::cout << "[AForm] Constructor called" <<std::endl;
     if (grade_to_execute < 1 || grade_to_sign < 1) {
@@ -65,54 +65,17 @@ std::string AForm::getTarget() const{
     return this->target;
 }
 
-// void AForm::setGradeToExecute(int grade){
-// 	if (grade < 1){
-// 		throw AForm::GradeTooHighException();
-// 	} else if (grade > 150) {
-// 		throw AForm::GradeTooLowException();
-// 	}
-// 	else
-// 		this->grade_to_execute = grade;
-// }
-
-// void AForm::setGradeToSign(int grade){
-// 	if (grade < 1){
-// 		throw AForm::GradeTooHighException();
-// 	} else if (grade > 150) {
-// 		throw AForm::GradeTooLowException();
-// 	}
-// 	else
-// 		this->grade_to_sign = grade;
-// }
-
-void AForm::setIsSigned(bool is_signed) {
-    this->is_signed = is_signed;
-}
-
-
-std::string AForm::getName() const{
-	return name;
-}
-
-int AForm::getGradeToExecute() const{
-	return grade_to_execute;
-}
-
-int AForm::getGradeToSign() const{
-	return grade_to_sign;
-}
-
-bool AForm::getIsSigned() const{
-	return is_signed;
-}
+void AForm::setIsSigned(bool is_signed) { this->is_signed = is_signed; }
+std::string AForm::getName() const{ return name; }
+int AForm::getGradeToExecute() const{ return grade_to_execute; }
+int AForm::getGradeToSign() const{ return grade_to_sign; }
+bool AForm::getIsSigned() const{ return is_signed;}
 
 void AForm::beSigned(Bureaucrat& brc) {
-    if (brc.getGrade() <= this->grade_to_sign) {
+    if (brc.getGrade() <= this->grade_to_sign)
         this->is_signed = true;
-    }
-    else {
+    else
         throw GradeTooLowException();
-    }
 }
 
 
@@ -155,12 +118,6 @@ void AForm::execute(Bureaucrat const & executer) const {
             }
         }
     }
-    else {
+    else
         throw FormNotSignedException();
-    }
 };
-
-
-// void AForm::implementJob(std::string target) const{
-//     std::cout << "Implementing the job for " << target << std::endl;
-// }

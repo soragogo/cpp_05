@@ -1,7 +1,7 @@
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) :AForm(target, "Rform", 5, 25, false) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) :AForm(target, "Rform", 5, 25) {
     std::cout << "[RobotomyRequestForm] Constructor called" <<std::endl;
 }
 

@@ -13,7 +13,6 @@ class Bureaucrat{
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &brc);
 		Bureaucrat &operator=(const Bureaucrat &brc);
-		std::ostream& operator<<(std::ostream& out) const;
 		void setGrade(int grade);
 		std::string getName() const;
 		int getGrade() const;
